@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+#    active: aws
+    active: test
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  jackson:
+    default-property-inclusion: non_null
