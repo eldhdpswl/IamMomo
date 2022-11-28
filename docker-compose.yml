@@ -1,5 +1,18 @@
 version: "3"
 services:
+  springbootapp:
+    build: ./
+    container_name: momo_app
+    ports:
+      - 8080:8080
+    depends_on:
+      - momo_redis
+      - momo_mysql
+    networks:
+      - springboot-net
+    links:
+      - momo_mysql 
+
   momo_mysql:
     image: mysql
 
@@ -12,7 +25,7 @@ services:
     ports:
        - 3306:3306
     networks:
-      - springboot-mysql-net   
+      - springboot-net   
 
   momo_redis:
     image: redis
@@ -21,29 +34,8 @@ services:
     ports:
       - 6379:6379
     networks:
-      - springboot-mysql-net   
-
-  springbootapp:
-    build: ./
-    container_name: momo_app
-
-    # restart: on-failure
-
-    ports:
-      - 8080:8080
-    depends_on:
-      - momo_redis
-      - momo_mysql
-
-    network_mode: "host"
-
-    # command: ["./wait-for-it.sh", "momo_mysql:3307", "java", "-jar", "/app.jar"]
-
-    # environment:
-    #   SPRING_DATASOURCE_URL: jdbc:mysql://momo_mysql:3307/momo_test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
-    #   SPRING_DATASOURCE_USERNAME: test
-    #   SPRING_DATASOURCE_PASSWORD: test
+      - springboot-net   
 
 networks:
-  springboot-mysql-net:
+  springboot-net:
          driver: bridge
