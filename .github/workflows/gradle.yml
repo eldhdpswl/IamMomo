@@ -31,7 +31,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    # current time
+    ## current time
     - name: Get current time
       uses: josStorer/get-current-time@v2.0.2
       id: current-time
@@ -39,23 +39,23 @@ jobs:
         format: YYYY-MM-DD, dddd, h:mm:ss a
         utcOffset: "+09:00"
       
-    # create application-prod.yml
+    ## create application-prod.yml
     - name: make application-prod.yml
       run:
         cd ./src/main/resources
 
         # application-prod.yml 파일 생성
-        touch ./application-prod.yaml
+        touch ./application-prod.yml
 
         # GitHub-Actions에서 설정 값 application-prod.yml에 작성
         echo "${{ secrets.DATABASE }}" >> ./application-prod.yml
       shell: bash
 
-    # Make ZIP file with source code
+    ## Make ZIP file with source code
     - name: Generate deployment package
       run: zip -r deploy.zip . -x "*.git*"
 
-    # Beanstalk Deploy
+    ## Beanstalk Deploy
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
       with:
