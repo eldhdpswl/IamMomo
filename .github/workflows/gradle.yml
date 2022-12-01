@@ -59,11 +59,11 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: momo_test
-        environment_name: Momotest-env-1
+        application_name: momo_backend
+        environment_name: Momobackend-env
         version_label: Github Action-${{steps.current-time.outputs.formattedTime}}
         version_description: ${{ github.event.head_commit.message }}
-        region: ap-northeast-2
+        region: us-west-2
         deployment_package: deploy.zip
 
 
