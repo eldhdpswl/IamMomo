@@ -51,7 +51,7 @@ jobs:
 
     ## Make ZIP file with source code
     - name: Generate deployment package
-      run: zip -r deploy.zip . -x '*.git*' 'img' 'README.md'
+      run: zip -r deploy.zip . -x '*.git*' './img/*' 'README.md'
 
     ## Beanstalk Deploy
     - name: Deploy to EB
