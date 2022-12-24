@@ -11,7 +11,7 @@ services:
       - momo_mysql
     networks:
       - springboot-net
-    command: ["./wait-for-it.sh", "momo_mysql:3306", "--", "java", "-Dspring.profiles.active=prod", "-jar","/app/spring-boot-application.jar"]
+    command: ["./wait-for-it.sh", "momo_mysql:3306", "-t", "120", "--", "java", "-Dspring.profiles.active=prod", "-jar","/app/spring-boot-application.jar"]
     
   momo_nginx:
     image: nginx
