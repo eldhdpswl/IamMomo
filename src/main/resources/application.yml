@@ -3,8 +3,8 @@ server:
 
 spring:
   profiles:
-#    active: aws
-    active: test
+    # active: aws
+    active: prod
 
   mvc:
     pathmatch:
