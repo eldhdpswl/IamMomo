@@ -63,7 +63,7 @@ jobs:
         environment_name: Momobackend-env
         version_label: Github Action-${{steps.current-time.outputs.formattedTime}}
         version_description: ${{ github.event.head_commit.message }}
-        region: us-west-2
+        region: us-east-1
         deployment_package: deploy.zip
 
 
