@@ -11,12 +11,12 @@
 
 > **Project Duration** : 2022.04.16 ~ 2021.04.27
 
-> **Server renewal Duration** : 2022.06 ~ 진행중
+> **Server renewal Duration** : 2022.06 ~ 2022.12(잠시중단)
 
 
 ## 2. 구성
 
-> **Project Duration** : 2022.06 ~ 진행중
+> **Project Duration** : 2022.06 ~ 2022.12(잠시중단)
 
 ![](./img/momo_arch.png)
 
